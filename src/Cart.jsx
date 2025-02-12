@@ -8,7 +8,8 @@ function Cart() {
     let dispatch = useDispatch();
 
     let cartItems = cart.map((item, index) => (
-        <li key={index} className="list-group-item d-flex justify-content-between align-items-center">
+        <li key={index} className="list-group-item d-flex justify-content-between align-items-center border border-primary bg-light">
+            <img src={item.image} alt={item.name} className="me-3" style={{ width: "50px", height: "50px", objectFit: "cover" }} />
             <span>{item.name} - ${item.price}</span>
             <div>
                 <button className="btn btn-sm btn-success me-1" onClick={() => dispatch(increment(item))}>+</button>
@@ -53,33 +54,31 @@ function Cart() {
     };
 
     return (
-        <div className="container mt-4">
+        <div className="container mt-4 p-4 bg-white border border-dark rounded shadow">
             {cart.length > 0 ? (
                 <div>
-                    <h2 className="mb-3">Shopping Cart</h2>
+                    <h2 className="mb-3 text-center text-primary">Shopping Cart</h2>
                     
                     <ul className="list-group mb-3">{cartItems}</ul>
 
-                    {/* Discount Buttons */}
-                    <h5>Apply Discount</h5>
-                    <div className="mb-3">
-                        <button className="btn btn-outline-success me-2" onClick={() => (setdiscountpercentage(10), setshowdiscount(true))}>10%</button>
-                        <button className="btn btn-outline-primary me-2" onClick={() => (setdiscountpercentage(20), setshowdiscount(true))}>20%</button>
-                        <button className="btn btn-outline-warning me-2" onClick={() => (setdiscountpercentage(30), setshowdiscount(true))}>30%</button>
+                    <h5 className="text-success">Apply Discount</h5>
+                    <div className="mb-3 d-flex flex-wrap gap-2">
+                        <button className="btn btn-outline-success" onClick={() => (setdiscountpercentage(10), setshowdiscount(true))}>10%</button>
+                        <button className="btn btn-outline-primary" onClick={() => (setdiscountpercentage(20), setshowdiscount(true))}>20%</button>
+                        <button className="btn btn-outline-warning" onClick={() => (setdiscountpercentage(30), setshowdiscount(true))}>30%</button>
                         <button className="btn btn-outline-danger" onClick={() => (setdiscountpercentage(40), setshowdiscount(true))}>40%</button>
                     </div>
 
                     {showdiscount && (
-                        <div className="alert alert-info">
+                        <div className="alert alert-info border border-primary">
                             <strong>Discount Applied!</strong>
                             <p>Discount Amount: ${discountamount.toFixed(2)}</p>
                         </div>
                     )}
 
-                    {/* Price Summary Table */}
-                    <table className="table table-bordered">
+                    <table className="table table-bordered bg-light">
                         <tbody>
-                            <tr>
+                            <tr className="bg-primary text-white">
                                 <td>Total Price</td>
                                 <td>${totalprice.toFixed(2)}</td>
                             </tr>
@@ -91,15 +90,14 @@ function Cart() {
                                 <td>Coupon Discount</td>
                                 <td>${couponDiscountAmount.toFixed(2)}</td>
                             </tr>
-                            <tr>
+                            <tr className="bg-success text-white">
                                 <td><strong>Final Amount</strong></td>
                                 <td><strong>${(finalamount - couponDiscountAmount).toFixed(2)}</strong></td>
                             </tr>
                         </tbody>
                     </table>
 
-                    {/* Coupon Code Section */}
-                    <div className="input-group mb-3">
+                    <div className="input-group mb-3 border border-secondary p-2 rounded bg-light">
                         <input
                             type="text"
                             className="form-control"
@@ -111,19 +109,18 @@ function Cart() {
                     </div>
 
                     {showcoupon && (
-                        <div className="alert alert-success">
+                        <div className="alert alert-success border border-dark">
                             <p>Coupon Code Applied: <strong>{couponcode}</strong></p>
                             <p>Coupon Discount: ${couponDiscountAmount.toFixed(2)}</p>
                         </div>
                     )}
 
-                    {/* Complete Purchase Button */}
-                    <button className="btn btn-lg btn-success w-100" onClick={handlepurchaseDetails}>
+                    <button className="btn btn-lg btn-success w-100 border border-dark" onClick={handlepurchaseDetails}>
                         Complete Purchase
                     </button>
                 </div>
             ) : (
-                <div className="alert alert-warning text-center">
+                <div className="alert alert-warning text-center border border-danger bg-light">
                     <h4>Your cart is empty</h4>
                 </div>
             )}

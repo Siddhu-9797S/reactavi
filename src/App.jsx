@@ -13,6 +13,7 @@ import About from "./About";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 import "./App.css";
 import Veg from "./Veg";
+import Fruits from "./Fruits";
  
 
 function App() {
@@ -53,9 +54,15 @@ function App() {
                   Veg
                 </Link>
               </li>
+             
               <li className="nav-item">
                 <Link className="nav-link" to="/nonveg">
                   Non-Veg
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/fruits">
+                  Fruits
                 </Link>
               </li>
               <li className="nav-item">
@@ -114,6 +121,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/veg" element={<Veg />} />
           <Route path="/nonveg" element={<Nonveg />} />
+          <Route path="/fruits" element={<Fruits />} />
           <Route path="/milk" element={<Milk />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/order" element={<Order />} />
@@ -121,6 +129,9 @@ function App() {
           <Route path="/contactus" element={<Contactus />} />
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<Notfound />} />
+          
+         
+          
         </Routes>
       </div>
     </BrowserRouter>

@@ -4,16 +4,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const ContactUs = () => {
   return (
     <div className="container mt-5">
-      <h1 className="text-center text-primary">
-        <i className="bi bi-envelope-fill"></i> Contact Us
-      </h1>
-      <p className="text-center text-muted">We'd love to hear from you! Reach out to us anytime.</p>
+      {/* Page Header */}
+      <div className="p-4 text-center bg-warning text-dark rounded shadow-lg">
+        <h1>
+          <i className="bi bi-envelope-fill"></i> Contact Us
+        </h1>
+        <p>We'd love to hear from you! Reach out to us anytime.</p>
+      </div>
 
       <div className="row mt-4">
         {/* Contact Form */}
         <div className="col-md-6">
-          <div className="card shadow p-4">
-            <h4 className="text-center mb-3">
+          <div className="card shadow-lg p-4 bg-light border border-primary rounded">
+            <h4 className="text-center text-primary mb-3">
               <i className="bi bi-chat-dots"></i> Send us a Message
             </h4>
             <img
@@ -46,7 +49,7 @@ const ContactUs = () => {
 
         {/* Contact Details */}
         <div className="col-md-6">
-          <div className="card shadow p-4">
+          <div className="card shadow-lg p-4 bg-secondary text-light border border-dark rounded">
             <h4 className="text-center mb-3">
               <i className="bi bi-info-circle"></i> Contact Information
             </h4>
@@ -56,13 +59,13 @@ const ContactUs = () => {
               alt="Store"
             />
             <ul className="list-group">
-              <li className="list-group-item">
+              <li className="list-group-item bg-dark text-light">
                 <i className="bi bi-geo-alt-fill text-danger"></i> 123 Grocery St, New York, USA
               </li>
-              <li className="list-group-item">
+              <li className="list-group-item bg-dark text-light">
                 <i className="bi bi-telephone-fill text-success"></i> +1 234 567 890
               </li>
-              <li className="list-group-item">
+              <li className="list-group-item bg-dark text-light">
                 <i className="bi bi-envelope-fill text-primary"></i> support@grocerystore.com
               </li>
             </ul>
@@ -73,11 +76,11 @@ const ContactUs = () => {
       {/* Store Timings */}
       <div className="row mt-4">
         <div className="col-md-12">
-          <div className="card shadow p-4">
+          <div className="card shadow-lg p-4 bg-info text-dark border border-dark rounded">
             <h4 className="text-center mb-3">
               <i className="bi bi-clock"></i> Store Timings
             </h4>
-            <table className="table table-striped text-center">
+            <table className="table table-bordered text-center">
               <thead className="table-dark">
                 <tr>
                   <th>Day</th>
@@ -86,20 +89,20 @@ const ContactUs = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr className="bg-light">
                   <td>Monday - Friday</td>
                   <td>9:00 AM</td>
                   <td>8:00 PM</td>
                 </tr>
-                <tr>
+                <tr className="bg-light">
                   <td>Saturday</td>
                   <td>10:00 AM</td>
                   <td>6:00 PM</td>
                 </tr>
-                <tr>
+                <tr className="bg-light">
                   <td>Sunday</td>
-                  <td>Closed</td>
-                  <td>Closed</td>
+                  <td className="text-danger">Closed</td>
+                  <td className="text-danger">Closed</td>
                 </tr>
               </tbody>
             </table>
@@ -110,7 +113,7 @@ const ContactUs = () => {
       {/* Google Maps Section */}
       <div className="row mt-4">
         <div className="col-md-12">
-          <div className="card shadow p-3">
+          <div className="card shadow-lg p-3 bg-danger text-light border border-dark rounded">
             <h4 className="text-center mb-3">
               <i className="bi bi-map"></i> Our Location
             </h4>

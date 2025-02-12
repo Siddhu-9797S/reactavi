@@ -33,7 +33,22 @@ const productSlice = createSlice({
         {name:"CountryDelight",price:50,image:"country.png"},
         {name:"Heritage",price:60,image:"haritage.png"},
         {name:"Sangam",price:80,image:"sangam.png"}
+        ],
+        fruits:[
+        {name:"Apple",price:100,image:"apple.png"},
+        {name:"Banana",price:150,image:"bannu.png"},
+        {name:"Grapes",price:170,image:"grap.png"},
+        {name:"Orange",price:200,image:"orange.png"},
+        {name:"Watermelon",price:200,image:"watermelon.png"},
+        {name:"Papaya",price:200,image:"papaya.png"},
+        {name:"Dragon",price:200,image:"dragon.png"},
+        {name:"Pineapple",price:200,image:"pineapple.png"},
+        {name:"Kiwi",price:200,image:"kiwi.png"},
+        {name:"mango",price:200,image:"mango.png"},
+        {name:"Strawberries",price:200,image:"stra.png"},
+        {name:"Avocado",price:200,image:"avocado.png"}
         ]
+                    
     },
     reducers:{}
 });
