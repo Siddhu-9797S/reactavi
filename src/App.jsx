@@ -10,25 +10,23 @@ import Notfound from "./Notfound";
 import { Logout } from "./Store";
 import Login from "./Login";
 import About from "./About";
-import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Veg from "./Veg";
 import Fruits from "./Fruits";
- 
 
 function App() {
   const cart = useSelector((state) => state.cart);
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-
   const { isAuthenticated, user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   return (
     <BrowserRouter>
-      {/* Bootstrap Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      {/* Navbar with modern styling */}
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg" style={{ borderBottom: "4px solid #f39c12" }}>
         <div className="container">
-          <Link className="navbar-brand" to="/home">
+          <Link className="navbar-brand fw-bold text-warning" to="/home">
             Grocery Store
           </Link>
           <button
@@ -45,48 +43,48 @@ function App() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav me-auto">
               <li className="nav-item">
-                <Link className="nav-link" to="/home">
-                  Home
+                <Link className="nav-link text-white" to="/home">
+                  <i className="fa-solid fa-house text-warning"></i> Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/veg">
-                  Veg
-                </Link>
-              </li>
-             
-              <li className="nav-item">
-                <Link className="nav-link" to="/nonveg">
-                  Non-Veg
+                <Link className="nav-link text-white" to="/veg">
+                  <i className="fa-solid fa-leaf text-success"></i> Veg
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/fruits">
-                  Fruits
+                <Link className="nav-link text-white" to="/nonveg">
+                  <i className="fa-solid fa-drumstick-bite text-danger"></i> Non-Veg
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/milk">
-                  Milk
+                <Link className="nav-link text-white" to="/fruits">
+                  <i className="fa-solid fa-apple-whole text-danger"></i> Fruits
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/cart">
-                  Cart <span className="badge bg-danger">{totalItems}</span>
+                <Link className="nav-link text-white" to="/milk">
+                  <i className="fa-solid fa-cow text-primary"></i> Milk
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/order">
-                  Order
+                <Link className="nav-link text-white" to="/cart">
+                  <i className="fa-solid fa-cart-shopping text-warning"></i> Cart <span className="badge bg-danger text-white">{totalItems}</span>
                 </Link>
               </li>
-              <li><Link to="/about" className="nav-link">
-  <i className="bi bi-info-circle"></i> About Us
-</Link>
-</li>
               <li className="nav-item">
-                <Link className="nav-link" to="/contactus">
-                  Contact Us
+                <Link className="nav-link text-white" to="/order">
+                  <i className="fa-brands fa-first-order text-info"></i> Order
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link text-white" to="/about">
+                  <i className="fa-regular fa-address-card text-light"></i> About Us
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link text-white" to="/contactus">
+                  <i className="fa-solid fa-phone text-success"></i> Contact Us
                 </Link>
               </li>
             </ul>
@@ -105,7 +103,7 @@ function App() {
                   </button>
                 </>
               ) : (
-                <Link to="/login" className="btn btn-primary">
+                <Link to="/login" className="btn btn-warning text-dark">
                   Sign In
                 </Link>
               )}
@@ -115,7 +113,7 @@ function App() {
       </nav>
 
       {/* Main Content */}
-      <div className="container mt-4">
+      <div className="container mt-4 p-4 shadow-lg rounded bg-dark text-white" style={{ border: "3px solid #f39c12" }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
@@ -129,9 +127,6 @@ function App() {
           <Route path="/contactus" element={<Contactus />} />
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<Notfound />} />
-          
-         
-          
         </Routes>
       </div>
     </BrowserRouter>
